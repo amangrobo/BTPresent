@@ -118,6 +118,7 @@
         android:layout_below="@id/grid_layout"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
+        android:visibility="invisible"
         android:id="@+id/result_text_view"/>
 
     <Button
