@@ -118,16 +118,17 @@
         android:layout_below="@id/grid_layout"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
-        android:id="@+id/answer_text_view"/>
+        android:id="@+id/result_text_view"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/answer_text_view"
+        android:layout_below="@id/result_text_view"
         android:layout_marginTop="16sp"
         android:textSize="24sp"
         android:padding="16dp"
+        android:id="@+id/play_button"
         android:text="Play"/>
 
 </RelativeLayout>
