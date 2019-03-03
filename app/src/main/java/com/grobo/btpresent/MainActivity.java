@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
     private int correctQuestions;
     private int totalQuestions;
+    private int locationOfCorrect;
 
     ArrayList<Integer> answers = new ArrayList<Integer>();
 
@@ -63,6 +64,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void startQuiz(){
 
+        createQuestion();
+
         timeTextView.setText("30s");
         correctQuestions = 0;
         totalQuestions = 0;
@@ -98,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
         int a = random.nextInt(21);
         int b = random.nextInt(21);
 
-        int locationOfCorrect = random.nextInt(4);
+        locationOfCorrect = random.nextInt(4);
 
         for (int i = 0; i < 4; i++){
 
@@ -127,8 +130,26 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void checkAnswer(View view){}
+    public void checkAnswer(View view){
 
-    private void showScore(){}
+        if(view.getTag().toString().equals(String.valueOf(locationOfCorrect))){
+            correctQuestions++;
+            resultTextView.setText("Correct Answer");
+        } else {
+            resultTextView.setText("Incorrect Answer");
+        }
+
+        totalQuestions++;
+        scoreTextView.setText(String.valueOf(correctQuestions) + "/" + String.valueOf(totalQuestions));
+
+        createQuestion();
+
+    }
+
+    private void showScore(){
+
+        
+
+    }
 
 }
