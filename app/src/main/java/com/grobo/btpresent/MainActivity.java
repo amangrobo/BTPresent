@@ -66,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
 
         createQuestion();
 
+        resultTextView.setText("");
         timeTextView.setText("30s");
         correctQuestions = 0;
         totalQuestions = 0;
@@ -95,6 +96,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void createQuestion(){
+
+        answers.clear();
 
         Random random = new Random();
 
@@ -148,7 +151,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void showScore(){
 
-        
+        resultTextView.setText("Score = " + String.valueOf(correctQuestions) + "/" + String.valueOf(totalQuestions));
 
     }
 
