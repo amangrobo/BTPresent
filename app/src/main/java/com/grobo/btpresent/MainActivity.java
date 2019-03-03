@@ -9,6 +9,9 @@ import android.widget.GridLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.Random;
+
 public class MainActivity extends AppCompatActivity {
 
     private TextView scoreTextView, timeTextView, questionTextView;
@@ -21,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
 
     private int correctQuestions;
     private int totalQuestions;
+
+    ArrayList<Integer> answers = new ArrayList<Integer>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,9 +91,43 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void checkAnswer(View view){}
+    private void createQuestion(){
 
-    private void createQuestion(){}
+        Random random = new Random();
+
+        int a = random.nextInt(21);
+        int b = random.nextInt(21);
+
+        int locationOfCorrect = random.nextInt(4);
+
+        for (int i = 0; i < 4; i++){
+
+            if(i == locationOfCorrect){
+                answers.add(a+b);
+            } else {
+
+                int wrongAnswer = random.nextInt(41);
+
+                while (wrongAnswer == (a+b)){
+                    wrongAnswer = random.nextInt(41);
+                }
+
+                answers.add(wrongAnswer);
+            }
+
+        }
+
+        String question = String.valueOf(a) + "+" + String.valueOf(b);
+        questionTextView.setText(question);
+
+        button1.setText(String.valueOf(answers.get(0)));
+        button2.setText(String.valueOf(answers.get(1)));
+        button3.setText(String.valueOf(answers.get(2)));
+        button4.setText(String.valueOf(answers.get(3)));
+
+    }
+
+    public void checkAnswer(View view){}
 
     private void showScore(){}
 
